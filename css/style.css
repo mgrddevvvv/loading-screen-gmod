@@ -1,0 +1,116 @@
+/* Nexium DarkRP - loading screen
+   Volontairement sans grid, flex récent ni variables CSS : le navigateur intégré
+   de Garry's Mod peut être très ancien. La mise en page est donc en positions
+   absolues sur une scène 1920x1080. */
+
+* { margin: 0; padding: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    background: #070b14; color: #eef3fb;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none; user-select: none; cursor: default;
+}
+
+.hidden { display: none !important; }
+.accent { color: #2f9fff !important; }
+
+/* ---------- Fond ---------- */
+#bg, #bg-glow, #bg-shade, .bg-photo { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+#bg { overflow: hidden; background: #070b14; }
+.bg-photo {
+    opacity: 0; background-position: center; background-repeat: no-repeat;
+    -webkit-background-size: cover; background-size: cover;
+    -webkit-transition: opacity 1.5s; transition: opacity 1.5s;
+}
+.bg-photo.on { opacity: 1; }
+#bg-glow { background: -webkit-linear-gradient(top, #070b14 25%, #0f2d55 62%, #17518f 100%); background: linear-gradient(to bottom, #070b14 25%, #0f2d55 62%, #17518f 100%); }
+#bg-skyline { position: absolute; left: 0; bottom: 0; width: 100%; height: 48%; }
+#bg-shade { background: -webkit-linear-gradient(left, rgba(5,8,15,.62), rgba(5,8,15,.18)); background: linear-gradient(to right, rgba(5,8,15,.62), rgba(5,8,15,.18)); }
+
+/* ---------- Scène ---------- */
+#stage {
+    position: absolute; top: 0; left: 0; width: 1920px; height: 1080px;
+    -webkit-transform-origin: 0 0; transform-origin: 0 0;
+}
+
+/* ---------- Icônes ---------- */
+.ico { display: inline-block; width: 24px; height: 24px; vertical-align: middle; color: #2f9fff; }
+.ico svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: square; stroke-linejoin: miter; }
+
+/* ---------- Marque ---------- */
+#brand { position: absolute; left: 90px; top: 76px; width: 610px; height: 180px; }
+#logo { position: absolute; left: 0; top: 0; width: 180px; height: 180px; }
+#wordmark { position: absolute; left: 200px; top: 30px; font-family: 'Rajdhani', 'Segoe UI', Arial, sans-serif; font-weight: 700; }
+#wm-name { font-size: 92px; line-height: 84px; letter-spacing: 5px; }
+#wm-sub { margin-top: 4px; font-size: 32px; line-height: 36px; letter-spacing: 15px; color: #2f9fff; }
+
+#dev-tag {
+    position: absolute; left: 96px; top: 276px; padding: 5px 12px;
+    font-size: 16px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    color: #ffc14d; border-left: 3px solid #ffc14d; background: rgba(255,193,77,.1);
+}
+#about { position: absolute; left: 96px; top: 330px; width: 580px; font-size: 24px; line-height: 36px; color: #c6d0df; }
+
+/* ---------- Infos serveur ---------- */
+#infos { position: absolute; left: 96px; top: 490px; width: 580px; }
+.info { position: relative; height: 70px; line-height: 70px; border-top: 1px solid rgba(255,255,255,.1); }
+.info:last-child { border-bottom: 1px solid rgba(255,255,255,.1); }
+.info .ico { position: absolute; left: 2px; top: 22px; width: 26px; height: 26px; }
+.info-k { position: absolute; left: 46px; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #8b97ab; }
+.info-v { position: absolute; right: 2px; font-size: 24px; font-weight: 600; color: #eef3fb; }
+
+/* ---------- Panneaux ---------- */
+.panel {
+    position: absolute; padding: 22px 28px;
+    background: rgba(9,14,25,.84); border: 1px solid rgba(255,255,255,.08); border-top: 3px solid #0d8bff;
+}
+.panel h2 {
+    height: 40px; line-height: 36px; margin-bottom: 12px;
+    font-family: 'Rajdhani', 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 2px; text-transform: uppercase;
+}
+.panel h2 .ico { width: 28px; height: 28px; margin: -4px 14px 0 0; }
+
+#p-rules { left: 750px; top: 76px; width: 530px; height: 674px; }
+#p-staff { left: 1304px; top: 76px; width: 526px; height: 346px; }
+#p-factions { left: 1304px; top: 442px; width: 526px; height: 308px; }
+
+.rule { padding: 13px 0 13px 20px; border-left: 3px solid rgba(47,159,255,.45); margin-bottom: 15px; }
+.rule b { display: block; font-size: 23px; line-height: 30px; font-weight: 600; }
+.rule span { display: block; font-size: 20px; line-height: 28px; color: #a7b3c6; }
+
+.member { position: relative; height: 50px; line-height: 50px; border-top: 1px solid rgba(255,255,255,.07); }
+.member:first-child { border-top: none; }
+.member b { font-size: 23px; font-weight: 600; }
+.member span { position: absolute; right: 0; font-size: 19px; color: #8fa0b8; }
+.member.top span { color: #2f9fff; }
+
+.faction { position: relative; height: 50px; padding-left: 40px; margin-bottom: 1px; }
+.faction .ico { position: absolute; left: 0; top: 6px; width: 26px; height: 26px; }
+.faction b { display: block; font-size: 20px; line-height: 25px; font-weight: 600; }
+.faction span.jobs { display: block; font-size: 18px; line-height: 25px; color: #a7b3c6; white-space: nowrap; overflow: hidden; }
+
+/* ---------- Chargement ---------- */
+#loader { position: absolute; left: 96px; top: 800px; width: 1734px; height: 220px; }
+#loader-top { position: relative; height: 46px; }
+#status { position: absolute; left: 0; bottom: 0; right: 180px; font-family: 'Rajdhani', 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 34px; line-height: 44px; letter-spacing: 1px; white-space: nowrap; overflow: hidden; }
+#percent { position: absolute; right: 0; bottom: 0; font-family: 'Rajdhani', 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 44px; color: #2f9fff; }
+#file { height: 26px; font-size: 18px; line-height: 26px; color: #8b97ab; white-space: nowrap; overflow: hidden; }
+#bar { position: relative; height: 10px; margin-top: 6px; background: rgba(255,255,255,.1); }
+#bar-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #0d8bff; -webkit-transition: width .5s; transition: width .5s; }
+
+#steps { position: relative; height: 52px; line-height: 52px; }
+.step { float: left; margin-right: 44px; font-size: 20px; font-weight: 600; color: #5e6b80; }
+.step .ico { width: 22px; height: 22px; margin: -3px 10px 0 0; color: inherit; }
+.step.done { color: #a7b3c6; }
+.step.now { color: #fff; }
+.step.now .ico { color: #2f9fff; }
+#timer { position: absolute; right: 0; top: 0; font-size: 20px; color: #a7b3c6; }
+#timer .ico { width: 22px; height: 22px; margin: -3px 10px 0 0; color: #8b97ab; }
+#elapsed { font-weight: 600; color: #eef3fb; }
+#estimate { margin-left: 14px; color: #8b97ab; }
+
+#tip { height: 40px; line-height: 40px; font-size: 21px; color: #c6d0df; }
+#tip .ico { margin: -3px 12px 0 0; color: #ffc14d; }
+#tip-text { -webkit-transition: opacity .3s; transition: opacity .3s; }

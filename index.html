@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Nexium DarkRP - Chargement</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani:600,700">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Fond : remplit tout l'écran, quel que soit le format -->
+    <div id="bg">
+        <div id="bg-photo-a" class="bg-photo"></div>
+        <div id="bg-photo-b" class="bg-photo"></div>
+        <div id="bg-glow"></div>
+        <img id="bg-skyline" src="assets/skyline.svg" alt="">
+        <div id="bg-shade"></div>
+    </div>
+
+    <!-- Scène de 1920x1080, mise à l'échelle par main.js -->
+    <div id="stage">
+
+        <div id="brand">
+            <img id="logo" src="assets/logo.png" alt="Logo Nexium">
+            <div id="wordmark">
+                <div id="wm-name">NEXIUM</div>
+                <div id="wm-sub">DARKRP</div>
+            </div>
+        </div>
+
+        <div id="dev-tag" class="hidden">Serveur en développement</div>
+        <p id="about"></p>
+
+        <div id="infos">
+            <div class="info"><span class="ico" data-icon="pin"></span><span class="info-k">Carte</span><span class="info-v" id="i-map"></span></div>
+            <div class="info"><span class="ico" data-icon="users"></span><span class="info-k">Places</span><span class="info-v" id="i-slots"></span></div>
+            <div class="info"><span class="ico" data-icon="gamepad"></span><span class="info-k">Mode</span><span class="info-v" id="i-mode">DarkRP</span></div>
+            <div class="info"><span class="ico" data-icon="chat"></span><span class="info-k">Discord</span><span class="info-v accent" id="i-discord"></span></div>
+        </div>
+
+        <div class="panel" id="p-rules">
+            <h2><span class="ico" data-icon="gavel"></span>Règlement</h2>
+            <div id="rules"></div>
+        </div>
+
+        <div class="panel" id="p-staff">
+            <h2><span class="ico" data-icon="badge"></span>Équipe</h2>
+            <div id="staff"></div>
+        </div>
+
+        <div class="panel" id="p-factions">
+            <h2><span class="ico" data-icon="city"></span>Choisissez votre camp</h2>
+            <div id="factions"></div>
+        </div>
+
+        <div id="loader">
+            <div id="loader-top">
+                <div id="status">Connexion au serveur</div>
+                <div id="percent">0%</div>
+            </div>
+            <div id="file"></div>
+            <div id="bar"><div id="bar-fill"></div></div>
+            <div id="steps">
+                <div class="step" id="s0"><span class="ico" data-icon="plug"></span>Connexion</div>
+                <div class="step" id="s1"><span class="ico" data-icon="download"></span>Contenu</div>
+                <div class="step" id="s2"><span class="ico" data-icon="code"></span>Scripts</div>
+                <div class="step" id="s3"><span class="ico" data-icon="city"></span>Entrée en ville</div>
+                <div id="timer"><span class="ico" data-icon="clock"></span><span id="elapsed">00:00</span><span id="estimate"></span></div>
+            </div>
+            <div id="tip"><span class="ico" data-icon="bulb"></span><span id="tip-text"></span></div>
+        </div>
+    </div>
+
+    <script src="js/config.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>
